@@ -1,7 +1,6 @@
 import dask.dataframe as dd
 from datetime import datetime, timezone
 import sqlalchemy as db
-from sqlalchemy.orm import sessionmaker
 
 file_loc = ['data/uber-raw-data-apr14.csv','data/uber-raw-data-aug14.csv',
             'data/uber-raw-data-jul14.csv','data/uber-raw-data-jun14.csv',

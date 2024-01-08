@@ -48,25 +48,7 @@ conn = engine.connect()
 metadata = db.MetaData()
 print(repr(metadata))
 
-Session = sessionmaker(bind=engine)
-# Create a session
-session = Session()
-try:
-    df.to_sql('uber1',uri ='mysql+mysqlconnector://root:hetshah13@localhost:3307/mno',index=False)
-    # Commit the transaction
-    session.commit()
-
-except Exception as e:
-    # Handle exceptions, log errors, etc.
-    print(f"Error: {e}")
-
-    # Rollback the transaction in case of an error
-    session.rollback()
-
-finally:
-    # Close the session to release resources
-    session.close()
-
+df.to_sql('uber1',uri ='mysql+mysqlconnector://root:hetshah13@localhost:3307/mno',index=False)
 result.to_sql('uber2',uri ='mysql+mysqlconnector://root:hetshah13@localhost:3307/mno',index=False)
 
 uber= db.Table('uber1', metadata, autoload=True, 
